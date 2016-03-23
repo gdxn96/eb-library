@@ -9,9 +9,10 @@
 User.create!(name:  "Admin",
              email: "admin@eb-library.com",
              password:              "asdfghjkl",
-             password_confirmation: "asdfghjkl")
+             password_confirmation: "asdfghjkl",
+             admin: true)
 
-99.times do |n|
+30.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@eb-library.com"
   password = "password"
