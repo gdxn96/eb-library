@@ -24,6 +24,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    puts book_params
     @book = Book.new(book_params)
 
     respond_to do |format|
@@ -51,6 +52,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def render_pdf
+    send_file(pdf_file_path, :type => 'application/pdf', :disposition => 'inline')
+  end
+
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
@@ -69,6 +74,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :genre)
+      params.require(:book).permit(:title, :url)
     end
 end

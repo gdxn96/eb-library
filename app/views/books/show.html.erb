@@ -6,14 +6,12 @@
 </p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @book.author %>
+  <a href="<%= @book.url %>" target="_blank"><strong>View</strong></a>
+  <%= link_to "Download", @book.url %>
 </p>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @book.genre %>
-</p>
+
+
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
